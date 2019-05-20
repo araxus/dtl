@@ -125,6 +125,20 @@ namespace dtl::branchless {
 
     } // dtl::max()
 
+    // Does not work if &x == &y (i.e. doesn't support reflexive operation)!
+    template<typename T>
+    inline static constexpr void
+    swap(
+        T & x,
+        T & y
+        ) noexcept {
+
+        x ^= y;
+        y ^= x;
+        x ^= y;
+
+    } // dtl::swap()
+
     namespace power_of_2 {
 
         // Returns true if the unsigned value is a power of 2.
