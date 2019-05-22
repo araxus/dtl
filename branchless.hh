@@ -127,7 +127,7 @@ namespace dtl::branchless {
 
     // Does not work if &x == &y (i.e. doesn't support reflexive operation)!
     template<typename T>
-    inline static constexpr void
+    inline static constexpr std::enable_if_t<std::is_integral<T>::value, void>
     swap(
         T & x,
         T & y
